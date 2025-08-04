@@ -1,18 +1,17 @@
 package shardedflight
 
 import (
-	"hash/fnv"
 	"unsafe"
 )
 
 // // // // // // // //
 
-func unsafeString(b []byte) string { return *(*string)(unsafe.Pointer(&b)) }
+const (
+	offset64 = uint64(14695981039346656037)
+	prime64  = uint64(1099511628211)
+)
 
-func unsafeStringBytes(s string) []byte {
-	sh := (*[2]uintptr)(unsafe.Pointer(&s))
-	return unsafe.Slice((*byte)(unsafe.Pointer(sh[0])), sh[1])
-}
+func unsafeString(b []byte) string { return *(*string)(unsafe.Pointer(&b)) }
 
 // //
 
@@ -38,7 +37,12 @@ func defaultBuilder(parts ...string) string {
 
 // defaultHash  64-bit FNV-1a; On average ~ 1ns per key
 func defaultHash(s string) uint64 {
-	h := fnv.New64a()
-	_, _ = h.Write(unsafeStringBytes(s))
-	return h.Sum64()
+	h := offset64
+	bs := unsafe.Slice(unsafe.StringData(s), len(s))
+
+	for _, b := range bs {
+		h ^= uint64(b)
+		h *= prime64
+	}
+	return h
 }
