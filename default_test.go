@@ -7,11 +7,6 @@ import (
 
 // // // // // // // //
 
-func TestName(t *testing.T) {
-	t.Log(defaultHash("test"))
-	t.Log(18007334074686647077 == 18007334074686647077)
-}
-
 func TestNew_DefaultFunctions(t *testing.T) {
 	conf := ConfObj{Shards: 4}
 	obj, err := New(conf)
