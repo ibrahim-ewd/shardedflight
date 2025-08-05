@@ -1,8 +1,7 @@
 # ShardedFlight
 
-A drop-in, high-concurrency replacement for **golang.org/x/sync/singleflight** that
-*shards* calls across multiple internal `singleflight.Group`s to eliminate global
-locks and boost throughput under heavy load.
+Ready-to-use highly parallel wrapper for **golang.org/x/sync/singleflight** that *shards* calls between multiple internal `singleflight.Group` to eliminate global locks and increase throughput under high load.
+The only difference - keys after function (iterator).
 
 ---
 
